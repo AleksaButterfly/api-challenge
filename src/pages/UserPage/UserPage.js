@@ -35,7 +35,7 @@ const UsersPage = () => {
 
   const headingText = user ? displayName : "⚡ Loading user... ⚡";
   return (
-    <Page>
+    <Page className={css.page}>
       <Heading headingText={headingText} />
       <BackInlineButton show={!!user} />
       <UserWrapper show={!!user} user={user} />
