@@ -1,5 +1,6 @@
 import React from "react";
-import { bool } from "prop-types";
+import { bool, string } from "prop-types";
+import classNames from "classnames";
 
 // React Loading Skeleton
 import Skeleton from "react-loading-skeleton";
@@ -8,6 +9,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import css from "./Loader.module.css";
 
 const SKELETON_ITEMS_COUNT = 6;
+const SKELETON_ITEM_COUNT = 3;
 
 const LoaderItem = () => {
   return (
@@ -15,18 +17,32 @@ const LoaderItem = () => {
       <Skeleton
         containerClassName={css.singleLoaderAvatarContainer}
         className={css.singleLoaderAvatar}
+        baseColor="rgba(255,255,255,.2)"
+        highlightColor="rgba(255,255,255,.2)"
+        enableAnimation={false}
         circle
       />
-      <Skeleton className={css.singleLoaderLine} count={3} />
+      <Skeleton
+        className={css.singleLoaderLine}
+        baseColor="rgba(255,255,255,.1)"
+        highlightColor="rgba(255,255,255,.2)"
+        count={SKELETON_ITEM_COUNT}
+      />
     </div>
   );
 };
 
-const Loader = ({ show }) => {
+const Loader = (props) => {
+  const { rootClassName, className, show, withMargin } = props;
+  const classes = classNames(rootClassName || className, css.loader, {
+    [css.loaderWithMargin]: withMargin,
+  });
+
   // Create an array of skeleton items
   const loaderArray = [...Array(SKELETON_ITEMS_COUNT).keys()];
+
   return show ? (
-    <div className={css.loader}>
+    <div className={classes}>
       {loaderArray.map((index) => {
         return <LoaderItem key={index} />;
       })}
@@ -35,11 +51,17 @@ const Loader = ({ show }) => {
 };
 
 Loader.defaultProps = {
-  show: false
+  rootClassName: null,
+  className: null,
+  show: false,
+  withMargin: false,
 };
 
 Loader.defaultProps = {
-  show: bool.isRequired
+  rootClassName: string,
+  className: string,
+  show: bool.isRequired,
+  withMargin: bool,
 };
 
 export default Loader;

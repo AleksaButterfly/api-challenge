@@ -1,10 +1,17 @@
 import React from "react";
 import { node } from "prop-types";
 
+// Shared
+import LoadingProgressBar from "./LoadingProgressBar";
 import css from "./Page.module.css";
 
 const Page = ({ children }) => {
-  return <div className={css.page}>{children}</div>;
+  return (
+    <div className={css.page}>
+      <LoadingProgressBar />
+      {children}
+    </div>
+  );
 };
 
 Page.defaultProps = {

@@ -18,13 +18,17 @@ const Users = (props) => {
     onDeleteUser,
     hasMoreItems,
   } = props;
+  const shouldAddLoaderMargin = users.length > 0;
+  const loaderComponent = (
+    <Loader show={fetchUsersInProgress} withMargin={shouldAddLoaderMargin} />
+  );
   return (
     <InfiniteScroll
       className={css.scrollContainer}
       dataLength={users.length}
       next={fetchUsers}
       hasMore={hasMoreItems}
-      loader={<Loader show={fetchUsersInProgress} />}
+      loader={loaderComponent}
       height={SCROLL_CONTAINER_HEIGHT}
     >
       <div className={css.users}>
