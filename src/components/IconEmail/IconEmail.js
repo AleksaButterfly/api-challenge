@@ -32,11 +32,11 @@ const IconEmail = ({ className }) => {
 };
 
 IconEmail.defaultProps = {
-  className: null
+  className: null,
 };
 
 IconEmail.protoTypes = {
-  className: string
+  className: string,
 };
 
 export default IconEmail;

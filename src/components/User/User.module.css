@@ -1,4 +1,4 @@
-.user {
+.root {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@
   transition: all ease-in-out 0.25s;
 }
 
-.user:hover {
+.root:hover {
   background-color: rgb(50, 50, 50);
 }
 

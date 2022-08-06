@@ -1,13 +1,18 @@
 import React from "react";
-import { node } from "prop-types";
+import { node, string } from "prop-types";
+
+// External
+import classNames from "classnames";
 
 // Shared
 import LoadingProgressBar from "./LoadingProgressBar";
 import css from "./Page.module.css";
 
-const Page = ({ children }) => {
+const Page = (props) => {
+  const { rootClassName, className, children } = props;
+  const classes = classNames(rootClassName || className, css.root);
   return (
-    <div className={css.page}>
+    <div className={classes}>
       <LoadingProgressBar />
       {children}
     </div>
@@ -15,10 +20,14 @@ const Page = ({ children }) => {
 };
 
 Page.defaultProps = {
+  rootClassName: null,
+  className: null,
   children: null,
 };
 
 Page.propTypes = {
+  rootClassName: string,
+  className: string,
   children: node.isRequired,
 };
 

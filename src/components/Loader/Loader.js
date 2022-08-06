@@ -10,6 +10,8 @@ import css from "./Loader.module.css";
 
 const SKELETON_ITEMS_COUNT = 6;
 const SKELETON_ITEM_COUNT = 3;
+const SKELETON_BASE_COLOR = "rgba(255,255,255,.1)";
+const SKELETON_HIGHLIGHTED_COLOR = "rgba(255,255,255,.2)";
 
 const LoaderItem = () => {
   return (
@@ -17,15 +19,15 @@ const LoaderItem = () => {
       <Skeleton
         containerClassName={css.singleLoaderAvatarContainer}
         className={css.singleLoaderAvatar}
-        baseColor="rgba(255,255,255,.2)"
-        highlightColor="rgba(255,255,255,.2)"
+        baseColor={SKELETON_HIGHLIGHTED_COLOR}
+        highlightColor={SKELETON_HIGHLIGHTED_COLOR}
         enableAnimation={false}
         circle
       />
       <Skeleton
         className={css.singleLoaderLine}
-        baseColor="rgba(255,255,255,.1)"
-        highlightColor="rgba(255,255,255,.2)"
+        baseColor={SKELETON_BASE_COLOR}
+        highlightColor={SKELETON_HIGHLIGHTED_COLOR}
         count={SKELETON_ITEM_COUNT}
       />
     </div>
@@ -34,7 +36,7 @@ const LoaderItem = () => {
 
 const Loader = (props) => {
   const { rootClassName, className, show, withMargin } = props;
-  const classes = classNames(rootClassName || className, css.loader, {
+  const classes = classNames(rootClassName || className, css.root, {
     [css.loaderWithMargin]: withMargin,
   });
 

@@ -1,26 +1,36 @@
 import React from "react";
 import { string } from "prop-types";
 
+// External
+import classNames from "classnames";
+
 // Shared
 import css from "./Heading.module.css";
 
-const Heading = ({ headingText }) => {
+const Heading = (props) => {
+  const { rootClassName, className, headingText } = props;
+  const classes = classNames(rootClassName || className, css.root);
+
   if (!headingText) {
     throw new Error("headingText is required.");
   }
   return (
-    <h2 className={css.heading}>
+    <h2 className={classes}>
       <span className={css.headingText}>{headingText}</span>
     </h2>
   );
 };
 
 Heading.defaultProps = {
-  headingText: null
+  rootClassName: null,
+  className: null,
+  headingText: null,
 };
 
 Heading.protoTypes = {
-  headingText: string.isRequired
+  rootClassName: string,
+  className: string,
+  headingText: string.isRequired,
 };
 
 export default Heading;

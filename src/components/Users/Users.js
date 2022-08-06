@@ -1,7 +1,8 @@
 import React from "react";
-import { array, bool, func } from "prop-types";
+import { array, bool, func, string } from "prop-types";
 
 // External
+import classNames from "classnames";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 // Shared
@@ -12,19 +13,23 @@ const SCROLL_CONTAINER_HEIGHT = 600;
 
 const Users = (props) => {
   const {
+    rootClassName,
+    className,
     users,
     fetchUsers,
     fetchUsersInProgress,
     onDeleteUser,
     hasMoreItems,
   } = props;
+  const classes = classNames(rootClassName || className, css.root);
+
   const shouldAddLoaderMargin = users.length > 0;
   const loaderComponent = (
     <Loader show={fetchUsersInProgress} withMargin={shouldAddLoaderMargin} />
   );
   return (
     <InfiniteScroll
-      className={css.scrollContainer}
+      className={classes}
       dataLength={users.length}
       next={fetchUsers}
       hasMore={hasMoreItems}
@@ -41,6 +46,8 @@ const Users = (props) => {
 };
 
 Users.defaultProps = {
+  rootClassName: null,
+  className: null,
   users: null,
   fetchUsers: null,
   fetchUsersInProgress: false,
@@ -49,6 +56,8 @@ Users.defaultProps = {
 };
 
 Users.propTypes = {
+  rootClassName: string,
+  className: string,
   users: array.isRequired,
   fetchUsers: func.isRequired,
   fetchUsersInProgress: bool.isRequired,

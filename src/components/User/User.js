@@ -1,8 +1,9 @@
 import React from "react";
-import { object, func } from "prop-types";
+import { object, func, string } from "prop-types";
 import { Link } from "react-router-dom";
 
 // External
+import classNames from "classnames";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // Shared
@@ -13,10 +14,13 @@ import css from "./User.module.css";
 // Read more: https://www.npmjs.com/package/react-lazy-load-image-component
 const LOAD_IMAGE_EFFECT = "blur";
 
-const User = ({ user, onDeleteUser }) => {
+const User = (props) => {
+  const { rootClassName, className, user, onDeleteUser } = props;
+  const classes = classNames(rootClassName || className, css.root);
+
   const displayName = `${user.first_name} ${user.last_name}`;
   return (
-    <div className={css.user}>
+    <div className={classes}>
       <LazyLoadImage
         className={css.avatar}
         src={user.avatar}
@@ -39,13 +43,17 @@ const User = ({ user, onDeleteUser }) => {
 };
 
 User.defaultProps = {
+  rootClassName: null,
+  className: null,
   user: null,
-  onDeleteUser: null
+  onDeleteUser: null,
 };
 
 User.propTypes = {
+  rootClassName: string,
+  className: string,
   user: object.isRequired,
-  onDeleteUser: func
+  onDeleteUser: func,
 };
 
 export default User;
