@@ -8,6 +8,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { UserLink, Loader } from "..";
 import css from "./Users.module.css";
 
+const SCROLL_CONTAINER_HEIGHT = 600;
+
 const Users = (props) => {
   const {
     users,
@@ -18,10 +20,12 @@ const Users = (props) => {
   } = props;
   return (
     <InfiniteScroll
+      className={css.scrollContainer}
       dataLength={users.length}
       next={fetchUsers}
       hasMore={hasMoreItems}
       loader={<Loader show={fetchUsersInProgress} />}
+      height={SCROLL_CONTAINER_HEIGHT}
     >
       <div className={css.users}>
         {users.map((u) => {
