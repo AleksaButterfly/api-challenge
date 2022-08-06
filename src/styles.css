@@ -1,0 +1,24 @@
+:root {
+  --mainColor: #55f;
+
+  --matterColorLight: #fff;
+  --matterColorBright: #f6f6f6;
+
+  --avatarSize: 68px;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}

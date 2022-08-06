@@ -1,0 +1,12 @@
+.users {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  grid-gap: 24px;
+}
+
+@media (min-width: 600px) {
+  .users {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,22 @@
+.heading {
+  display: flex;
+  align-items: center;
+
+  color: var(--matterColorLight);
+  margin: 0 0 24px;
+}
+
+.headingText {
+  white-space: nowrap;
+
+  width: fit-content;
+  padding: 0 18px;
+}
+
+.heading::before,
+.heading::after {
+  content: "";
+  height: 4px;
+  width: 100%;
+  background-color: var(--mainColor);
+}
