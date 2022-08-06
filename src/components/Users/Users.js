@@ -14,7 +14,7 @@ const Users = (props) => {
     fetchUsers,
     fetchUsersInProgress,
     onDeleteUser,
-    hasMoreItems
+    hasMoreItems,
   } = props;
   return (
     <InfiniteScroll
@@ -37,7 +37,7 @@ Users.defaultProps = {
   fetchUsers: null,
   fetchUsersInProgress: false,
   onDeleteUser: null,
-  hasMoreItems: false
+  hasMoreItems: false,
 };
 
 Users.propTypes = {
@@ -45,6 +45,7 @@ Users.propTypes = {
   fetchUsers: func.isRequired,
   fetchUsersInProgress: bool.isRequired,
   onDeleteUser: func.isRequired,
-  hasMoreItems: bool.isRequired
+  hasMoreItems: bool.isRequired,
 };
+
 export default Users;

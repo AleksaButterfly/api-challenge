@@ -1,0 +1,24 @@
+.userWrapper {
+  margin-top: 12px;
+}
+
+.homeLink {
+  display: flex;
+  align-items: center;
+
+  font-size: 15px;
+  text-transform: capitalize;
+  color: var(--matterColorLight);
+}
+
+.homeLink:hover .homeLinkIcon path {
+  stroke: rgba(255, 255, 255, 0.7);
+}
+
+.homeLinkIcon {
+  margin-right: 8px;
+}
+
+.homeLinkIcon path {
+  stroke-width: 2;
+}

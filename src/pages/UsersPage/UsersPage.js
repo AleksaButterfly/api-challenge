@@ -9,13 +9,8 @@ import { Page, Heading, Users } from "../../components";
 const TOTAL_USERS = 12;
 
 const UsersPage = () => {
-  const [
-    users,
-    originalUsers,
-    setUsers,
-    fetchUsers,
-    fetchUsersInProgress
-  ] = useFetchUsers();
+  const [users, originalUsers, setUsers, fetchUsers, fetchUsersInProgress] =
+    useFetchUsers();
 
   // Original users represents an array of users that
   // includes the ones that are also deleted.

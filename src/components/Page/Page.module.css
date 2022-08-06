@@ -2,7 +2,10 @@
   background-color: #222;
 
   max-width: 600px;
-  min-height: 100vh;
+  /* Calc fixes the extra spacing added by
+     padding */
+  min-height: calc(100vh - 48px);
+  overflow-y: auto;
 
   margin: 0 auto;
   padding: 24px;

@@ -20,5 +20,10 @@ body {
 }
 
 a {
+  color: var(--matterColorLight);
   text-decoration: none;
+}
+
+a:hover {
+  color: rgba(255, 255, 255, 0.7);
 }

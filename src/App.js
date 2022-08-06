@@ -8,19 +8,18 @@ import "./styles.css";
 const App = () => {
   return (
     <Router>
-      <ScrollToTop>
-        <Routes>
-          {routes().map((route) => {
-            return (
-              <Route
-                key={route.name}
-                path={route.path}
-                element={route.component}
-              />
-            );
-          })}
-        </Routes>
-      </ScrollToTop>
+      <ScrollToTop />
+      <Routes>
+        {routes().map((route) => {
+          return (
+            <Route
+              key={route.name}
+              path={route.path}
+              element={route.component}
+            />
+          );
+        })}
+      </Routes>
     </Router>
   );
 };

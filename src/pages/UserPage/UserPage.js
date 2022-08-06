@@ -1,8 +1,30 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { Page, Heading, User } from "../../components";
+import { Link, useParams } from "react-router-dom";
 
+// Helpers
 import { useFetchUser } from "../../util/apiHelpers";
+
+// Shared
+import { Page, Heading, User, IconChevron } from "../../components";
+import css from "./UserPage.module.css";
+
+const UserWrapper = (props) => {
+  const { show, ...rest } = props;
+  return show ? (
+    <div className={css.userWrapper}>
+      <User {...rest} />
+    </div>
+  ) : null;
+};
+
+const BackInlineButton = ({ show }) => {
+  return show ? (
+    <Link className={css.homeLink} to="/">
+      <IconChevron className={css.homeLinkIcon} />
+      Go back
+    </Link>
+  ) : null;
+};
 
 const UsersPage = () => {
   const params = useParams();
@@ -15,7 +37,8 @@ const UsersPage = () => {
   return (
     <Page>
       <Heading headingText={headingText} />
-      {user ? <User user={user} /> : null}
+      <BackInlineButton show={!!user} />
+      <UserWrapper show={!!user} user={user} />
     </Page>
   );
 };

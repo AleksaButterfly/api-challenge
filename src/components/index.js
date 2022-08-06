@@ -7,3 +7,4 @@ export { default as ScrollToTop } from "./ScrollToTop/ScrollToTop";
 
 // Icons
 export { default as IconEmail } from "./IconEmail/IconEmail";
+export { default as IconChevron } from "./IconChevron/IconChevron";

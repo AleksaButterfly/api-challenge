@@ -8,11 +8,11 @@ const Page = ({ children }) => {
 };
 
 Page.defaultProps = {
-  children: null
+  children: null,
 };
 
 Page.propTypes = {
-  children: node.isRequired
+  children: node.isRequired,
 };
 
 export default Page;
