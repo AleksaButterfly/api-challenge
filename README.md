@@ -15,4 +15,4 @@ Project was build as a hobby-project to demonstrate some of the main React possi
 
 Feel free to submit pull request.
 
-Alternatively you can check the project on [CodeSandbox ⚡️](https://codesandbox.io/s/github/AleksaButterfly/reqres-users-api).
+You can check the project on [CodeSandbox ⚡️](https://codesandbox.io/s/github/AleksaButterfly/reqres-users-api).
